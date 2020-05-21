@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="text/html">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            compArray = ["Rock", "Paper", "Scissors"];
+            return compArray[Math.floor(Math.random() * compArray.length)];
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+
+            if (playerSelection === computerSelection) {
+                return "Tie!";
+            }
+                else if (playerSelection === "rock" && computerSelection === "paper") {
+                    return "You lose!";
+                }
+                else if (playerSelection === "paper" && computerSelection === "scissors") {
+                    return "You lose!";
+                }
+                else if (playerSelection === "scissors" && computerSelection === "rock") {
+                    return "You lose!";
+                }
+                else if (playerSelection === "rock" && computerSelection === "scissors") {
+                    return "You win!";
+                }
+                else if (playerSelection === "scissors" && computerSelection === "paper") {
+                    return "You win!";
+                }
+                else if (playerSelection === "paper" && computerSelection === "rock") {
+                    return "You win!";
+                }
+                else {
+                    return "Inaccurate Input, please try again";
+                 }
+        }
+
+        function game() {
+            let cpu = 0;
+            let player = 0;
+
+            for (let i = 0; i < 5; i++) {
+                playerSelection = prompt("Rock, Paper, or Scissors?")
+                computerSelection = computerPlay();
+                outcome = playRound(playerSelection,computerSelection)
+
+                if (outcome === "You win!") {
+                    ++player;
+                        alert(`You win! ${playerSelection} beats ${computerSelection} \nScore: You ${player} - Computer ${cpu}`) ;
+                }
+                    else if (outcome === "You lose!") {
+                        ++cpu;
+                         alert(`You Lose! ${computerSelection} beats ${playerSelection} \nScore: You ${player} - Computer ${cpu}`);
+                    }
+                    else {
+                        alert(`Tie! You and the Computer selected ${playerSelection} \nScore: You ${player} - Computer ${cpu}`)
+                    }
+            }
+
+            if (player > cpu) {
+                return "Congrats! You've beat the Computer";
+            }
+                else if (cpu > player) {
+                    return "You've lost to the Computer. Better luck next time";
+                }
+
+                else {
+                    return "It's a draw. Play again to see if you can beat the Computer!";
+                }
+        }
+    </script>
+</body>
+</html>
