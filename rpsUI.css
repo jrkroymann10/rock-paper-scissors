@@ -1,0 +1,50 @@
+div {
+    display: block;
+
+}
+
+.gameButtons {
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    font-size: x-large;
+    font-style: italic;
+}
+
+.results {
+    text-align: center;
+    margin: 10px 0 10px;
+    color: rgb(255, 80, 109);
+    font-size: x-large;
+    font-style: italic;
+}
+
+body {
+    background-color: aqua;
+}
+
+p {
+    display: inline-block;
+    margin: 25% 10px 20px 10px;
+    font-size: 200px;
+    background-color: white;
+    padding: 10px;
+    border: solid 2px black;
+    height: auto;
+    width: auto;
+    
+}
+
+.scoreboard {
+    text-align: center;
+}

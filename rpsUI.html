@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="text/html">
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="rpsUI.css">
+</head>
+
+<body>
+    <div class="scoreboard">
+        <p class="player">0</p>
+        <p class="comp">0</p>
+    </div>
+    <div class="results"></div>
+    <div class="gameButtons">
+        <button id ='ROCK'>ROCK</button>       
+        <button id ='PAPER'>PAPER</button>
+        <button id ='SCISSORS'>SCISSORS</button>
+    <ul>
+    </div>
+</body>
+<script>
+
+    let result = "";
+
+    function computerPlay() {
+        let compArray = ["Rock", "Paper", "Scissors"];
+        return compArray[Math.floor(Math.random() * compArray.length)];
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+        
+
+        if (playerSelection === computerSelection) {
+            result = "tie";
+            return `Tie! The computer also selected ${computerSelection.toUpperCase()}`;
+        }
+        else if (playerSelection === "rock" && computerSelection === "paper") {
+            result = "loss";
+            return "You lose! ROCK beats PAPER!";
+        }
+        else if (playerSelection === "paper" && computerSelection === "scissors") {
+            result = "loss";
+            return "You lose! PAPER beats SCISSORS!";
+        }
+        else if (playerSelection === "scissors" && computerSelection === "rock") {
+            result = "loss";
+            return "You lose! SCISSORS beats ROCK!";
+        }
+        else if (playerSelection === "rock" && computerSelection === "scissors") {
+            result = "win";
+            return "You win! ROCK beats SCISSORS!";
+        }
+        else if (playerSelection === "scissors" && computerSelection === "paper") {
+            result = "win";
+            return "You win! SCISSORS beats PAPER!";
+        }
+        else if (playerSelection === "paper" && computerSelection === "rock") {
+            result = "win";
+            return "You win! PAPER Beats ROCK!";
+        }
+        else {
+            return "Inaccurate Input, please try again";
+        }
+    }
+
+    function game() {
+        let cpu = 0;
+        let player = 0;
+
+        for (let i = 0; i < 1; i++) {
+            playerSelection = prompt("Rock, Paper, or Scissors?")
+            computerSelection = computerPlay();
+            outcome = playRound(playerSelection, computerSelection)
+
+            if (outcome === "You win!") {
+                ++player;
+                alert(`You win! ${playerSelection} beats ${computerSelection} \nScore: You ${player} - Computer ${cpu}`);
+            }
+            else if (outcome === "You lose!") {
+                ++cpu;
+                alert(`You Lose! ${computerSelection} beats ${playerSelection} \nScore: You ${player} - Computer ${cpu}`);
+            }
+            else {
+                alert(`Tie! You and the Computer selected ${playerSelection} \nScore: You ${player} - Computer ${cpu}`)
+            }
+        }
+
+        if (player > cpu) {
+            return "Congrats! You've beat the Computer";
+        }
+        else if (cpu > player) {
+            return "You've lost to the Computer. Better luck next time";
+        }
+
+        else {
+            return "It's a draw. Play again to see if you can beat the Computer!";
+        }
+    }
+
+    let playerScore = document.querySelector('.player').textContent;
+    let compScore = document.querySelector('.comp').textContent;
+    const results = document.querySelector('.results')
+
+    buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            computerSelection = computerPlay();
+            roundResult = (playRound(button.id, computerSelection));
+            results.textContent = roundResult;
+            if (result === "win") {
+                playerScore++;
+                document.querySelector('.player').innerHTML = playerScore;
+            }   else if (result === "loss") {
+                compScore++;
+                document.querySelector('.comp').innerHTML = compScore;
+            }   else {
+                
+            }
+                
+        })
+    });
+
+
+   
+    
+    
+    
+    
+</script>
+
+</html>
