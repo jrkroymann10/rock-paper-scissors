@@ -23,28 +23,50 @@ button {
 
 .results {
     text-align: center;
-    margin: 10px 0 10px;
-    color: rgb(255, 80, 109);
+    margin: 10px 0 15px;
+    color: white;
     font-size: x-large;
     font-style: italic;
+    font-weight: bolder;
+    transition-delay: 2s;
 }
 
 body {
-    background-color: aqua;
+    background-color: #0bd3d3;
 }
 
 p {
     display: inline-block;
-    margin: 25% 10px 20px 10px;
+    margin: 1% 10px 20px 10px;
     font-size: 200px;
-    background-color: white;
+    background-color: #f890e7;
     padding: 10px;
     border: solid 2px black;
-    height: auto;
-    width: auto;
-    
+    height: 229px;
+    width: 200px;
+    color: white;
 }
 
 .scoreboard {
     text-align: center;
+}
+
+#divider {
+    background-color: white;
+    border: none;
+    height: 30px;
+    width: 50px;
+    padding: 0px;
+    margin: 0 0 35px;
+}
+
+button:hover {
+    background-color:  #f890e7;
+    transform: scale(1.1);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
 }
